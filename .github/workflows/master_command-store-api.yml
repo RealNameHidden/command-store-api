@@ -28,6 +28,9 @@ jobs:
 
     - name: 'Deploy to Azure Web App'
       uses: azure/webapps-deploy@v2
+      env:
+          PORT: ${{ secrets.PORT }}
+          MONGOLAB_URI: ${{ secrets.MONGOLAB_URI }}
       with:
         app-name: 'command-store-api'
         slot-name: 'production'
