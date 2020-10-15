@@ -4,6 +4,8 @@
   "description": "command-store backend",
   "main": "index.js",
   "scripts": {
+    "start": "node ./src/index.js",
+    "build": "mkdir build && cp -R node_modules src db models build && echo \"build complete!\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
