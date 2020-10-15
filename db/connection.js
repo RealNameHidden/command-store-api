@@ -1,6 +1,6 @@
-
 const mongoose = require('mongoose');
-const uri = "mongodb+srv://admin:admin@cluster0.a6kvs.azure.mongodb.net/commands?retryWrites=true&w=majority";
+const uri = process.env.MONGOLAB_URI;
+
 mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true
