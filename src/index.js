@@ -1,12 +1,14 @@
 
+require('dotenv').config()
 const express = require('express')
 var cors = require('cors')
-const db = require('./db/connection.js')
-const Command = require('./models/command.js')
+const db = require('../db/connection.js')
+const Command = require('../models/command.js')
 const bodyParser = require('body-parser')
-const { findOne } = require('./models/command.js')
+const { findOne } = require('../models/command.js')
+const port = process.env.PORT
 const app = express()
-const port = 3000
+
 
 app.use(bodyParser.json())
 app.use(cors())
