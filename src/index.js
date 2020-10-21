@@ -2,20 +2,19 @@
 require('dotenv').config()
 const express = require('express')
 var cors = require('cors')
-const db = require('../db/connection.js')
-const Command = require('../models/command.js')
+const db = require('./db/connection.js')
+const Command = require('./models/command.js')
 const bodyParser = require('body-parser')
-const { findOne } = require('../models/command.js')
 const port = process.env.PORT
 const app = express()
 
 
 app.use(bodyParser.json())
-// app.use(cors())
+app.use(cors())
 
-app.get('/', (req,res) => {
-    res.send("Store your commands here!").status(200)
-})
+// app.get('/', (req,res) => {
+//     res.send("Store your commands here!").status(200)
+// })
 app.post('/add_command', (req, res) => {
     try {
         const command = new Command(req.body)
