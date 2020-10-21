@@ -12,9 +12,9 @@ const app = express()
 app.use(bodyParser.json())
 app.use(cors())
 
-// app.get('/', (req,res) => {
-//     res.send("Store your commands here!").status(200)
-// })
+app.get('', (req,res) => {
+    res.render("Store your commands here!").status(200)
+})
 app.post('/add_command', (req, res) => {
     try {
         const command = new Command(req.body)
