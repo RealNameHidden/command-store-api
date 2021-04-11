@@ -4,17 +4,21 @@ const express = require('express')
 var cors = require('cors')
 const db = require('./db/connection.js')
 const Command = require('./models/command.js')
+const path = require('path')
 const bodyParser = require('body-parser')
 const port = process.env.PORT
 const app = express()
 
+const publicDirectory = path.join(__dirname, '../public')
 
 app.use(bodyParser.json())
 app.use(cors())
+app.use(express.static(publicDirectory))
 
-// app.get('', (req,res) => {
-//     res.render("Store your commands here!").status(200)
-// })
+app.get('', (req,res) => {
+    res.render(index).status(200)
+})
+
 app.post('/add_command', (req, res) => {
     try {
         const command = new Command(req.body)
